@@ -3,11 +3,10 @@ import { getToken } from "next-auth/jwt";
 import Stripe from "stripe";
 import prisma from "@/lib/prisma";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: "2026-07-29.dahlia",
-});
-
 export async function POST(request: NextRequest) {
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+    apiVersion: "2026-07-29.dahlia",
+  });
   try {
     const token = await getToken({ req: request });
 
