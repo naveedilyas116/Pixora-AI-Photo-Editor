@@ -3,6 +3,8 @@ import { getToken } from "next-auth/jwt";
 import Stripe from "stripe";
 import prisma from "@/lib/prisma";
 
+export const dynamic = "force-dynamic";
+
 export async function POST(request: NextRequest) {
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
     apiVersion: "2026-07-29.dahlia",
